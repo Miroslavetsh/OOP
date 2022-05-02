@@ -30,12 +30,12 @@ export default class Triangle extends GeometricFigure {
     const { a, b, c, isRight } = this;
 
     if (isRight) {
-      return (Math.sqrt(3) / 4) * a ** 2;
+      return Number(((Math.sqrt(3) / 4) * a ** 2).toFixed(5));
     }
 
     const p = this.computePerimeter() / 2;
 
-    return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    return Number(Math.sqrt(p * (p - a) * (p - b) * (p - c)).toFixed(5));
   }
 
   showInterior(): string {

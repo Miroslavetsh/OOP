@@ -20,8 +20,12 @@ export default class Container<T extends GeometricFigure> {
   }
 
   logEachInteriorFilling() {
-    this.filling.forEach(({ perimeter, square, showInterior }) => {
-      console.log({ perimeter, square, interior: showInterior() });
+    this.filling.forEach((figure) => {
+      console.log({
+        perimeter: figure.perimeter,
+        square: figure.perimeter,
+        interior: figure.showInterior.call(figure),
+      });
     });
   }
 }
