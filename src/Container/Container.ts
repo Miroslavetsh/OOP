@@ -15,16 +15,16 @@ export default class Container<T extends GeometricFigure> {
       id: figure.id,
       perimeter: figure.computePerimeter(),
       square: figure.computeSquare(),
-      showInterior: figure.showInterior,
+      showInterior: figure.showInterior.bind(figure),
     }));
   }
 
   logEachInteriorFilling() {
-    this.filling.forEach((figure) => {
+    this.filling.forEach(({ perimeter, square, showInterior }) => {
       console.log({
-        perimeter: figure.perimeter,
-        square: figure.perimeter,
-        interior: figure.showInterior.call(figure),
+        perimeter,
+        square,
+        interior: showInterior(),
       });
     });
   }
