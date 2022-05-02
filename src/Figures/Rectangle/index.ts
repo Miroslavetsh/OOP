@@ -1,9 +1,8 @@
-import GeometricFigure from './GeometricFigure';
+import GeometricFigure from '../GeometricFigure';
 
 export default class Rectangle extends GeometricFigure {
   a: number;
   b: number | undefined;
-  c: number | undefined;
   isSquare: boolean;
 
   constructor(id: string, a: number, b?: number) {
@@ -17,13 +16,13 @@ export default class Rectangle extends GeometricFigure {
   }
 
   computePerimeter(): number {
-    const { a, b, c } = this;
+    const { a, b } = this;
 
-    if (!b || !c) {
-      return a * 3;
+    if (!b) {
+      return a * 4;
     }
 
-    return a + b + c;
+    return (a + b) * 2;
   }
 
   computeSquare(): number {

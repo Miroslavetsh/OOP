@@ -1,4 +1,4 @@
-import GeometricFigure from './GeometricFigure';
+import GeometricFigure from '../GeometricFigure';
 
 export default class Triangle extends GeometricFigure {
   a: number;
