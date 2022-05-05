@@ -1,12 +1,5 @@
 import Steward, { ISteward } from './StationWorkers/Steward';
-import { CoupeWagon, EconomyWagon, SuitWagon } from './Wagon/children';
-import { IWagon } from './Wagon/Wagon';
-
-const RandomWagon = (steward: ISteward, next: IWagon | null = null) =>
-  new [EconomyWagon, CoupeWagon, SuitWagon][Math.floor(Math.random() * 3)](
-    steward,
-    next,
-  );
+import { buildTrain } from './tools';
 
 const stewards: Array<ISteward> = [
   new Steward('July', 'female'),
@@ -17,11 +10,6 @@ const stewards: Array<ISteward> = [
   new Steward('Kendrick', 'male'),
   new Steward('Myroslav', 'male'),
 ];
-
-const buildTrain = (stewards: Array<ISteward>) => {
-  if (stewards.length === 1) return RandomWagon(stewards.pop(), null);
-  return RandomWagon(stewards.pop(), buildTrain(stewards));
-};
 
 const logEachWagon = () => {
   const head = buildTrain(stewards);
