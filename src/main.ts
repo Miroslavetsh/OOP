@@ -16,7 +16,7 @@ const logEachWagon = () => {
   let current = head,
     counter = 1;
 
-  while (current.next) {
+  while (current) {
     const { steward, comfortable, legsInTheAisle } = current;
 
     console.log(
